@@ -1,0 +1,31 @@
+{% extends "aum/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="title2">
+    <div class="container">
+        <h1 class="">Blog</h1>
+        <hr class="decoration1" style="height:3px; background-color: green;">
+    </div>
+</div>
+<div class="container about1">
+    <img src="{% static 'aum/img/blogg.png' %}" class="img-fluid" width="700">
+    <article>
+        <p>Volunteering experiences are all about discovering and learning - about the world we live in, about the people around us, and about ourselves. 
+            Every step is followed by novelty and guided by the motivation to act with kindness and solidarity in order to bring positive change.
+        </p>
+        <p>
+            As volunteers we are presented with opportunities and challenges that can redefine our comfort zone and expand our perspective. 
+            These kind of experiences turn into stories - of connection, of overcoming obstacles, of development and of personal growth - that show that volunteering is an important 
+            way of engaging people in solving issues faced by communities.
+        <p>
+            This space has the purpose of giving voice to these stories and bring together the volunteers in Transilvania.
+        </p>
+
+        <h3 style="text-align: left;">Visit the blog here:
+            <a class="longlink" href="https://voluntarint.wixsite.com/voluntartransilvania" >https://www.voluntarintransilvania.com/</a>
+        </h3>
+        <br>
+    </article>
+
+{% endblock content %}

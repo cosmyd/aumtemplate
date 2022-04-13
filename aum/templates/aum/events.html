@@ -1,0 +1,29 @@
+{% extends "aum/base.html" %}
+{% block content %}
+<div class="title4">
+    <div class="container">
+        <h1 class="">Events</h1>
+        <hr class="decoration1" style="height:3px; background-color: rgb(36, 1, 36);">
+    </div>
+</div>
+<div class="container">
+
+            {% for event in events %}
+                <article>
+                    <div class="title3">
+                        <h2>{{ event.title }}</h2>
+                        <hr class="decoration1" style="height:3px; background-color: #712C79;">
+
+                      </div>
+                    
+                    <img src="{{ event.image.url }}" class="img-fluid" width="800">
+                    <p>{{ event.paragraph1 }} </p>
+                        <a class="btn btn-secondary" href="{% url 'event-detail' event.id %}" role="button">Read More</a>
+                </article>
+                <hr>
+            {% endfor %}
+
+   
+</div>
+
+{% endblock content %}

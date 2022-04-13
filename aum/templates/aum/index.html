@@ -1,0 +1,83 @@
+{% extends "aum/base.html" %}
+
+{% block content %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="background-image: url('static/aum/img/1.png');">
+      <div class="carousel-caption">
+        <h3>Aum Association</h3>
+        <p class="description">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'about'%}" role="button">About Us</a>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('static/aum/img/3.png');">
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'projects'%}" role="button">Projects</a>
+      </div>
+    </div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+  </a>
+</div>
+<div class="title2">
+  <div class="container">
+      <h1 class="">Latest News</h1>
+      <hr class="decoration1" style="height:3px; background-color: green;">
+  </div>
+</div>
+  <div id="latest-news" class="row" style="max-width: 100%;">
+  {% for n in news %}
+    <div class="col-sm paragraph1 flex-container">
+      <div class='flex-container'>
+        <div class="title3">
+          <a href="{% url 'news-detail' n.id %}">
+            <h2>{{ n.title }}</h2>
+          </a>
+        </div> 
+        <small class="text-muted">{{ n.date_uploaded|date:"F d, Y" }}</small>
+        <a href="{% url 'news-detail' n.id %}"><div class="image1"><img src="{{ n.image.url }}" class="img-fluid"></div></a>
+
+        <p>{{n.paragraph1}}</p>
+
+      </div>
+      <div class="down">
+        <a class="btn btn-primary" href="{% url 'news-detail' n.id %}" role="button">Read More</a>
+      </div>  
+    </div>
+  {% endfor %}    
+  </div>
+  <div class="home-bar-thing" style= "background-image: url('static/aum/img/bck.jpg');">
+    
+      {% for number in numbers %}
+        <div class="home-bar-item">
+          <h4 class="home-bar-text">{{ number.name }}</h5>
+          <h1 class="home-bar-text">{{ number.value }}</h1>
+        </div>
+      {% endfor %}
+  </div>
+  
+
+  <!--<div class="bc-green">
+    <div class= "container pad-1">
+      <h4 style="display: inline;">Check out our projects!</h4>
+      <a class="btn btn-primary" href="{% url 'projects'%}" role="button" style="float:right;">Projects</a>
+    </div>
+  </div> -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,100 @@
+{% extends "aum/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="title2">
+        <div class="container">
+            <h1 class="">About Us</h1>
+            <hr class="decoration1" style="height:3px; background-color: green;">
+        </div>
+      </div>
+
+    <div class="container about1">
+
+                    <article>
+                        <div class="title6">
+                            <h3>Who are we?</h3> 
+                        </div>
+                        <p>
+                            Asociaţia AUM (RO) or AUM Association (EN), became active in 2018 and it was created by Alexandra and Florentina who share the vision of developing the local
+                             community of Sighişoara through non-formal education and active citizenship. In the past 4 years they have gained vast project management experience within other 
+                             associations such as Wild Carpathia and Sighişoara Volunteering Center.
+                        </p>
+                        <img src="{% static 'aum/img/about_us1.png' %}" class="img-fluid" style="width: 100%;">
+                        <div class="title6">
+                            <h3>Our Values</h3> 
+                        </div>
+                        <p>
+                            We are guided by Hope, Respect, Love, Trust, Forgiveness, Purpose and Change. We aim to create a multicultural 
+                            safe space where our participants and volunteers can grow and develop harmoniously, can be supported and empowered.
+                        </p>
+
+                        <div class="title6">
+                            <h3>Our purpose</h3> 
+                        </div>
+
+                        <p>
+                            AUM Association has the purpose of promoting solidarity among people and volunteering as a way of engaging in solving some problems faced by the 
+                            community and developing complementary educational and personal development activities for children, young people and adults.
+
+                        </p>
+
+                        <div class="title6">
+                            <h3>How do we do this?</h3> 
+                        </div>
+                        <p>
+                            In order to step into this purpose, we implement projects that are financed with non-reimbursable funds by The European Commission through the European Solidarity Corps 
+                            and Erasmus+ initiatives with the
+                             help of national and international volunteers registered on these programs.
+                        </p>
+                        <p>
+                            We collaborate with members of the local community (artists, teachers, tour guides, students, local administration representatives, business owners, other NGOs boards) to assess the 
+                            needs and the interests of the people in our town 
+                            and we are grateful to have the support of partners such as local schools, public institutions, other NGOs or private companies.
+                        <p>
+                            These projects can be short-term or long-term and last between 2 and 12 months. Through our projects we have been offering non-formal education on themes like leading a healthy
+                             lifestyle, anti-bullying and civic sense. We organize activities for kids (summer camps, workshops, educative theme parties), youngsters (personal development classes, skill learning
+                              courses, public events for spending free time in a constructive way, 
+                            civic and social responsibility activities such as cleanings), and adults (foreign language classes, creative workshops, etc.).
+                        </p>
+                        <p>
+                            Between 2018 and 2020 we implemented the projects “Love is the Answer!”, “PLUS - make a difference”, “S.O.S Sighişoara Renaşte”, 
+                             “Boomerang - what goes around comes around” and "LOVE Actually!". Until 2021 Sighişoara became "home" for over 100 volunteers from Turkey, Italy, Spain,
+                              Estonia, Lithuania, Letonia, Germany, France, Portugal, Slovacia, Denmark and Romania. Currently we have two long-term projects ongoing: " Boomerang - What
+                               goes around comes around" (anti-bullying) and LOVE Actually! (sexual education) that will be completed by the end of July 2021. A new long term project started
+                                in May 2021 called "Transylvania Highlands from culture to nature" (ecotourism).
+                        </p> 
+                        <img src="{% static 'aum/img/about_us2.jpg' %}" class="img-fluid" style="width: 100%;">       
+                        <div class="title6">
+                            <h3>What are our plans?</h3> 
+                        </div>
+                        <p>
+                            Asociaţia AUM aims to become the main element of support for volunteering activities and projects of non-formal 
+                            education for the entire Sighişoara community, and a source of personal and 
+                            professional deveolpment for its members, volunteers, participants and partners.
+                        </p> 
+                    </article>
+                    <div class="title6">
+                        <h2>Meet the team</h2>
+                        <hr class="decoration1" style="height:3px; background-color: green;">
+                    </div>
+                    
+                    <div class="container-fluid">
+                        <div class="flex-container-row">
+                        {% for member in members %}
+                        <div class="member">
+                            <img src="{{ member.image.url }}" class="member-img">
+                            <h2>{{ member.name }}</h2>
+                            <h5>
+                                {{ member.role }}
+                            </h5>
+                        </div>
+                        {% endfor %} 
+                        </div>
+                        <a class="btn btn-primary" href="{% url 'team'%}" role="button">Find out more about the Team</a>
+                    </div>
+                    <hr>
+
+       
+    </div>
+    <small class="down">Web Development and design by Cosmin</small>
+{% endblock content %}

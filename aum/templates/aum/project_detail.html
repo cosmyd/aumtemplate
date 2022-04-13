@@ -1,0 +1,62 @@
+{% extends "aum/base.html" %}
+{% block content %}
+<div class="title1">
+    <div class="container">
+        <h1 class="">{{object.title}}</h1>
+        <h4 class="text-muted">{{ object.period }}</h4>
+        <hr class="decoration1" style="height:3px; background-color: green;">
+        
+        {% if object.present %}
+        <a class="btn btn-primary btn-lg" href = "{% url 'pres-projects' %}" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Back to All Present Projects
+            </a>
+        {% else %}
+        <a class="btn btn-primary btn-lg" href = "{% url 'past-projects' %}" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Back to All Past Projects
+            </a>
+        {% endif %}
+    </div>
+</div>
+<div class="container" style="margin-top: 2rem;">
+
+
+        
+        <img src="{{ object.image.url }}" class="img-fluid" width="900">
+        
+        <p>{{ object.paragraph1 }} </p>
+        <p>{{ object.article|linebreaks }}</p>
+        {% if object.image2 %}
+        <img src="{{ object.image2.url }}" class="img-fluid" width="900">
+        <p>{{ object.article2|linebreaks }}</p>
+        {% endif %}
+        {% if object.link1 %}
+        <a href="{{ object.link1 }}"><p>{{object.link1_prompt}}</p></a>
+        {% endif %}
+        {% if object.download_prompt %}
+        <a href="{{ object.image2.url }}" download><p>{{object.download_prompt }}</p></a>
+        {% endif %}
+        {% if object.album or object.hashtag %}
+        <div>
+            <small>Click here to see our photos on Facebook</small>
+            {% if object.album %}
+            <a class="btn btn-primary" href = "{{ object.album }}" role="button">Album</a>
+            {% endif %}
+            {% if object.hashtag %}
+            <a class="btn btn-primary" href = "{{ object.hashtag }}" role="button">Other Photos</a>
+            {% endif %}
+            
+        </div>
+        {% endif %}
+        <hr>
+
+
+</div>
+
+
+{% endblock content %}

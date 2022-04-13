@@ -1,0 +1,28 @@
+{% extends "aum/base.html" %}
+{% block content %}
+<div class="title2">
+    <div class="container">
+        <h1 class="">Succes</h1>
+        <hr class="decoration1" style="height:3px; background-color: green;">
+    </div>
+</div>
+<div class="container">
+    <h3>Message sent successfully!
+         
+    </h3>
+    <h3>
+        Thanks for contacting us!
+    </h3>
+    <a class="btn btn-primary btn-lg" href = "{% url 'homepage' %}" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Home
+    </a>
+    <a class="btn btn-primary btn-lg" href = "{% url 'contact' %}" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Back to the Contact Page
+    </a>
+{% endblock %}

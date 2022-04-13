@@ -1,0 +1,72 @@
+{% extends "aum/base.html" %}
+{% block content %}
+
+<div class="title2">
+    <div class="container">
+        <h1 class="">Collaborators</h1>
+        <hr class="decoration1" style="height:3px; background-color: green;">
+    </div>
+</div>
+<div class="container">
+    <h2 class="col-title" >Local</h2> 
+    <hr class="decoration1" style="height:3px; background-color: green;">  
+        <div class="flex-container-row"> 
+  
+            {% for collab in localcollabs %}
+                <div class="collaborator">
+                
+                    <div class="title3">
+                        <h2>{{ collab.name }}</h2>
+                        
+                      </div>
+                    
+                    <img src="{{ collab.image.url }}" class="img-fluid" width="200">
+                    
+                    {% if collab.bio %}
+                        <p>{{ collab.bio }} </p>
+                    
+                    {% endif %}
+                    {% if collab.link %}
+                        <a href="{{ collab.link }}">LINK</a>
+                    {% endif %} 
+
+                <hr>
+                </div>
+                <hr>
+            {% endfor %}
+            <hr>
+
+        </div>
+        <hr>
+    <h2 class="col-title" >International</h2>  
+    <hr class="decoration1" style="height:3px; background-color: green;">
+        <div class="flex-container-row">
+  
+            {% for collab in intcollabs %}
+            <div class="collaborator">
+                
+                    <div class="title3">
+                        <h2>{{ collab.name }} - {{ collab.country}} </h2>
+                        
+                      </div>
+                    
+                    <img src="{{ collab.image.url }}" class="img-fluid" width="200">
+                    
+                    {% if collab.bio %}
+                        <p>{{ collab.bio }} </p>
+                    
+                    {% endif %}
+                    {% if collab.link %}
+                        <a href="{{ collab.link }}">LINK</a>
+                    {% endif %} 
+
+                <hr>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

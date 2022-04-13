@@ -1,0 +1,54 @@
+{% extends "aum/base.html" %}
+{% block content %}
+
+
+<div class="title5">
+    <div class="container">
+        <h1 class="">{{event.title}}</h1>
+        <hr class="decoration1" style="height:3px; background-color: rgb(78, 12, 78);;">
+        <a class="btn btn-secondary btn-lg" style="margin-bottom: 1rem;" href = "{% url 'events' %}" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+             Back to All Events
+        </a>
+    </div>
+</div>
+<div class="container">
+
+            {% for yevent in yevents %}
+                <article>
+                    <div class="title3">
+                        <h2>{{ yevent.title }}</h2>
+                        <hr class="decoration1" style="height:3px; background-color: #712C79;">
+
+                      </div>
+                    
+                    <img src="{{ yevent.image.url }}" class="img-fluid" width="800">
+                    <p>{{ yevent.paragraph1 }} </p>
+                    {% if yevent.forms_rules %}
+                    <div>
+                        <small>For the needed inforomation click here</small>
+                        <a class="btn btn-secondary" href = "{{ yevent.forms_rules }}" role="button">Documents</a>
+                    </div>
+                    {% endif %}
+        {% if yevent.link1 %}
+            <a href="{{ yevent.link1 }}"><p>{{yevent.link1_prompt}}</p></a>
+        {% endif %}
+        {% if yevent.album or yevent.hashtag %}
+        <div>
+            <small>Click here to see our photos on Facebook</small>
+            {% if yevent.album %}
+            <a class="btn btn-primary" href = "{{ yevent.album }}" role="button">Album</a>
+            {% endif %}
+            {% if yevent.hashtag %}
+            <a class="btn btn-primary" href = "{{ yevent.hashtag }}" role="button">Other Photos</a>
+            {% endif %}
+            
+        </div>
+        {% endif %}
+                </article>
+                <hr>
+            {% endfor %} 
+</div>
+{% endblock content %}

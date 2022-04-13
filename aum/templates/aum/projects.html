@@ -1,0 +1,92 @@
+{% extends "aum/base.html" %}
+{% load static %}
+{% block content %}
+<div class="title2">
+    <div class="container">
+    <h1 class="">Projects</h1>
+    <hr class="decoration1" style="height:3px; background-color: green;">
+    </div>
+</div>
+<div class="container">
+
+                <article>
+                    <div class="title3">
+                        <h2>What our projects are about</h2>
+                        <hr class="decoration1" style="height:3px; background-color: green;">
+                    </div>
+                    
+                    <p>Our projects are thought to help develop individuals and the community through  complementary non-formal education methods by addressing certain 
+                        needs and social issues of our community. These projects are funded and approved by the European Comission through the European Solidarity Corps program and offer
+                         an inspiring and empowering experience as well as the chance to bring change while developing your skills and competences.
+                    </p>
+                </article>  
+
+</div> 
+<div class="title1">
+    <div class="container">
+    <a href="{% url 'pres-projects' %}">
+        <h2 class="project-link" >Present Projects</h2>  
+    </a> 
+    </div>
+</div>
+<div class="container">
+
+<div class="row" style="max-width: 100%;">
+
+    {% for project in presentprojects %}    
+        <div class="col-md-6 paragraph1">
+            <article>
+                <div class="title3">
+                    <a href="{% url 'project-detail' project.id %}">
+                        <h3>{{ project.title }}</h3>
+                    </a>
+                    <small class="text-muted">{{ project.period }}</small>
+                    <hr class="decoration1" style="height:3px; background-color: green;">
+                    
+                  </div>
+                
+                <img src="{{ project.image.url }}" class="img-fluid">
+                <p>{{ project.paragraph1 }} </p>
+                    <a class="btn btn-primary" href="{% url 'project-detail' project.id %}" role="button">Read More</a>
+            </article>
+            <hr>
+        </div>
+        {% endfor %}
+        <a class="btn btn-primary btn-lg" href="{% url 'pres-projects' %}" role="button">View All Present Projects</a>
+</div>
+</div>
+<div class="title1">
+    <div class="container">
+    <a href="{% url 'past-projects' %}">
+        <h2 class="project-link" >Past Projects</h2>  
+    </a> 
+</div>
+</div>
+<div class="container">
+<div class="row" style="max-width: 100%;">
+
+    <hr> 
+    {% for project in pastprojects %}     
+        <div class="col-md-6 paragraph1">
+            <article>
+                <div class="title3">
+                    <a href="{% url 'project-detail' project.id %}">
+                        <h2>{{ project.title }}</h2>
+                    </a>
+                    <small class="text-muted">{{ project.period }}</small>
+                    <hr class="decoration1" style="height:3px; background-color: green;">
+                    
+                  </div>
+                
+                <img src="{{ project.image.url }}" class="img-fluid">
+                <p>{{ project.paragraph1 }} </p>
+                    <a class="btn btn-primary" href="{% url 'project-detail' project.id %}" role="button">Read More</a>
+            </article>
+            <hr>
+        </div>
+        {% endfor %}
+        <a class="btn btn-primary btn-lg" href="{% url 'past-projects' %}" role="button">View All Past Projects</a>
+</div>
+</div>  
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "aum/base.html" %}
+{% load static %}
+{% block content %}
+<div class="title4">
+    <div class="container">
+        <h1 class="">Donate</h1>
+        <hr class="decoration1" style="height:3px; background-color: rgb(36, 1, 36);">
+    </div>
+</div>
+<div class="container">
+    <p>
+        We are fully grateful for all the people who see the value of our work, encourage us to always do more and be better, and support our activity. As a local NGO, 
+        everything that we organize for the Sighişoara community is free of charge. If you would like to contribute, you can do so either by redirecting 3,5% of your taxes paid
+         to the Romanian government and submit the file to ANAF until May 25th or you can make a direct donation to Asociaţia AUM (details below). All funds raised are being used for 
+         maintaining our activity spaces, 
+        buying the equipment and materials needed during our educational programs and public events (eg. summercamps, workshops, green spaces sanitations, etc.).
+    </p>
+    <h5><b>Direct donations</b> can be done at anytime at UniCredit Bank in the account of Asociaţia AUM,  RO90 BACX 0000 0017 6590 3000 (RON), 
+        or RO63 BACX 0000 0017 6590 3001 (EUR)</h5>
+    <img src="{% static 'aum/img/Donate.png' %}" class="img-fluid"  width="700">
+    <h5><b>About redirecting 3,5%:</b></h5>
+    <p>It is your choice where the 3,5% of your taxes go, and you can chose to support a local NGO that creates non-formal educational programmes for children,
+         youngsters and adults with the aim of community development and enriching the cultural life of Sighişoara. Follow the link below, complete and print the form and
+          you can either submit it to ANAF yourself or bring it to our office on Ilarie Chendi 77 and we will submit it for you. If you do not chose where the 3,5% go to, 
+          the money will be kept in the state budget. The deadline for submitting is May 25th. Click <a href="https://www.redirectioneaza.ro/asociatia-aum/succes">here</a> to fill in the form!
+    </p>
+    <img src="{% static 'aum/img/Redirectionez.png' %}" class="img-fluid"  width="700">
+</div>
+
+{% endblock content %}
